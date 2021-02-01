@@ -1,14 +1,20 @@
+import { Link } from "react-router-dom";
 // Styling
-import { ThemeButton } from "../styles";
+import { ThemeButton, Logo, NavProduct } from "../styles";
+import lightlogo from "./light-logo.png";
+import darklogo from "./dark-logo.png";
 
 const NavBar = (props) => {
+  let logo = lightlogo;
+  (props.currentTheme === "light")? logo = lightlogo : logo = darklogo;
+
   return (
     <nav className="navbar navbar-expand">
-      <h4 className="navbar-brand">add your logo</h4>
+      <Logo exact to="/">
+        <img src={logo}/>
+      </Logo>
       <div className="navbar-nav ml-auto">
-        <a className="nav-item" style={{ padding: "0.25em 1em" }}>
-          Products
-        </a>
+        <NavProduct to="/products">Products</NavProduct>
         <ThemeButton className="nav-item" onClick={props.toggleTheme}>
           {props.currentTheme === "light" ? "Dark" : "Light"} Mode
         </ThemeButton>

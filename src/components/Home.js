@@ -1,8 +1,12 @@
+import {Helmet} from "react-helmet";
 import { Description, ShopImage, Title } from "../styles";
 
 const Home = () => {
   return (
     <>
+      <Helmet>
+        <title>Cookies & Beyond</title>
+      </Helmet>
       <Title>Cookies and Beyond</Title>
       <Description>Where cookie maniacs gather</Description>
       <ShopImage
