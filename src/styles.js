@@ -95,3 +95,21 @@ export const NavProduct = styled(NavLink)`
     color: ${(props) => props.theme.pink};
   }
 `;
+
+export const FormStyled = styled.div`
+  display: container;
+  margin-top: 2em;
+  margin-bottom: 40px;
+  margin-left: 20em;
+  margin-right: 20em; 
+  h2 {
+    text-align: center;
+    margin-bottom: 1em;
+  }
+`;
+
+export const FormButtons = styled.div`
+  align-items: center;
+  justify-content: center;  
+  display: flex;
+`;

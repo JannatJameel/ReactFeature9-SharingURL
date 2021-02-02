@@ -8,6 +8,8 @@ import ProductDetail from "./components/ProductDetail";
 import ProductList from "./components/ProductList";
 import Home from "./components/Home";
 import NavBar from "./components/NavBar";
+import ProductForm from "./components/ProductForm";
+
 
 const theme = {
   light: {
@@ -35,14 +37,17 @@ function App() {
       <GlobalStyle />
       <NavBar currentTheme={currentTheme} toggleTheme={toggleTheme} />
       <Switch>
-        <Route exact path= "/">
-          <Home />
+        <Route path={["/products/new", "/products/:productSlug/edit"]}>
+          <ProductForm />
         </Route>
         <Route path = "/products/:productSlug">
           <ProductDetail />
         </Route>
         <Route path = "/products">
           <ProductList />
+        </Route>
+        <Route exact path= "/">
+          <Home />
         </Route>
       </Switch>
     </ThemeProvider>

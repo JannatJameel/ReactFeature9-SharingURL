@@ -6,6 +6,8 @@ import { ListWrapper } from "../styles";
 // Components
 import ProductItem from "./ProductItem";
 import SearchBar from "./SearchBar";
+import AddButton from "./AddButton";
+
 
 const ProductList = (props) => {
   const products = useSelector(state => state.products);
@@ -27,6 +29,7 @@ const ProductList = (props) => {
       </Helmet>
       <SearchBar setQuery={setQuery} />
       <ListWrapper>{productList}</ListWrapper>
+      <AddButton/>
     </div>
   );
 };

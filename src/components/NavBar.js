@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 // Styling
 import { ThemeButton, Logo, NavProduct } from "../styles";
 import lightlogo from "./light-logo.png";
@@ -11,7 +10,7 @@ const NavBar = (props) => {
   return (
     <nav className="navbar navbar-expand">
       <Logo exact to="/">
-        <img src={logo}/>
+        <img alt={"logo"} src={logo}/>
       </Logo>
       <div className="navbar-nav ml-auto">
         <NavProduct to="/products">Products</NavProduct>

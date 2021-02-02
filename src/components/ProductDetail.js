@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import {Helmet} from "react-helmet";
 
 // Components
-import DeleteButton from "./DeleteButton";
+import Buttons from "./Buttons";
 // Styling
 import { DetailWrapper } from "../styles";
 
@@ -23,7 +23,7 @@ const ProductDetail = (props) => {
       <img src={product.image} alt={product.name} />
       <p>{product.description}</p>
       <p>{product.price} KD</p>
-      <DeleteButton productId={product.id}/>
+      <Buttons productId={product.id} productSlug={product.slug}/>
     </DetailWrapper>
   );
 };
