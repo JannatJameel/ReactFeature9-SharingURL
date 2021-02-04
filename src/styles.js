@@ -1,7 +1,7 @@
 import styled, { createGlobalStyle } from "styled-components";
 import { Link, NavLink } from "react-router-dom";
 
-export const DeleteButtonStyled = styled.p`
+export const Button = styled.p`
   color: ${(props) => props.theme.red};
 `;
 

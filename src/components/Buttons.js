@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { deleteProduct } from "../store/actions";
 import { Link } from "react-router-dom";
 // Styling
-import { DeleteButtonStyled } from "../styles";
+import { Button } from "../styles";
 
 const Buttons = ({productId, productSlug}) => {
   const dispatch = useDispatch();
@@ -10,12 +10,12 @@ const Buttons = ({productId, productSlug}) => {
   return (
     <div style={{display: "flex", justifyContent: "center"}}>
       <div style={{marginRight: "30px"}}>
-        <DeleteButtonStyled onClick={() => dispatch(deleteProduct(productId))}>
+        <Button onClick={() => dispatch(deleteProduct(productId))}>
           Delete
-        </DeleteButtonStyled>
+        </Button>
       </div>
-      <Link to={`products/${productSlug}/edit`}>
-        <DeleteButtonStyled>Edit</DeleteButtonStyled>
+      <Link to={`/products/${productSlug}/edit`}>
+        <Button>Edit</Button>
       </Link>
     </div>
   );
