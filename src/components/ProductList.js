@@ -7,12 +7,16 @@ import { ListWrapper } from "../styles";
 import ProductItem from "./ProductItem";
 import SearchBar from "./SearchBar";
 import AddButton from "./AddButton";
+import Loading from "./Loading";
 
 
 const ProductList = (props) => {
   const products = useSelector(state => state.products);
+  const loading = useSelector(state => state.loading);
 
   const [query, setQuery] = useState("");
+
+  if(loading) return <Loading />;
 
   const productList = products
     .filter((product) =>
