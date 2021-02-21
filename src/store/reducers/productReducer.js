@@ -1,11 +1,9 @@
-import slugify from "slugify";
-
 const initialState = {
     products: [],
     loading: true
 }
 
-const reducer = (state=initialState, action) => {
+const productReducer = (state=initialState, action) => {
     switch (action.type){
         case "FETCH_PRODUCTS":
             return {
@@ -21,8 +19,6 @@ const reducer = (state=initialState, action) => {
             }; 
         case "CREATE_PRODUCT":
             const {newProduct} = action.payload;
-            newProduct.id = state.products[state.products.length - 1].id++;
-            newProduct.slug = slugify(newProduct.name, {lower: true})
             return{
                 ...state, 
                 products: [...state.products, newProduct]
@@ -38,4 +34,4 @@ const reducer = (state=initialState, action) => {
     };
 };
 
-export default reducer;
+export default productReducer;

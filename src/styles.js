@@ -20,6 +20,10 @@ export const DetailWrapper = styled.div`
     float: left;
   }
 
+  h3 {
+    margin-top: 13em
+  }
+
   p {
     vertical-align: middle;
   }
@@ -77,6 +81,15 @@ export const ThemeButton = styled.button`
   color: ${(props) => props.theme.backgroundColor};
 `;
 
+export const UserButton = styled.button`
+  font-size: 1em;
+  padding: 0.25em 1em;
+  border-radius: 3px;
+  background-color: #ff85a2;
+  color: black;
+  margin-right: 10px;
+`;
+
 export const Title = styled.h1`
   text-align: center;
 `;
@@ -90,6 +103,7 @@ export const Logo = styled(Link)`
 
 export const NavProduct = styled(NavLink)`
   padding: 0.25em 1em;
+  text-decoration: none;
   color: ${(props) => props.theme.mainColor};
   &.active {
     color: ${(props) => props.theme.pink};

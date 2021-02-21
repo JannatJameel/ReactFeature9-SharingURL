@@ -1,14 +1,10 @@
-import { Route, Switch } from "react-router";
 import React, { useState } from "react";
 // Styling
 import { GlobalStyle } from "./styles";
 import { ThemeProvider } from "styled-components";
 // Components
-import ProductDetail from "./components/ProductDetail";
-import ProductList from "./components/ProductList";
-import Home from "./components/Home";
 import NavBar from "./components/NavBar";
-import ProductForm from "./components/ProductForm";
+import Routes from "./components/Routes";
 
 
 const theme = {
@@ -28,28 +24,13 @@ const theme = {
 
 function App() {
   const [currentTheme, setCurrentTheme] = useState("light");
-
-  const toggleTheme = () =>
-    setCurrentTheme(currentTheme === "light" ? "dark" : "light");
+  const toggleTheme = () => setCurrentTheme(currentTheme === "light" ? "dark" : "light");
 
   return (
     <ThemeProvider theme={theme[currentTheme]}>
       <GlobalStyle />
       <NavBar currentTheme={currentTheme} toggleTheme={toggleTheme} />
-      <Switch>
-        <Route path={["/products/new", "/products/:productSlug/edit"]}>
-          <ProductForm />
-        </Route>
-        <Route path = "/products/:productSlug">
-          <ProductDetail />
-        </Route>
-        <Route path = "/products">
-          <ProductList />
-        </Route>
-        <Route exact path= "/">
-          <Home />
-        </Route>
-      </Switch>
+      <Routes />
     </ThemeProvider>
   );
 }

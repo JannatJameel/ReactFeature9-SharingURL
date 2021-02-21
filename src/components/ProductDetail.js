@@ -7,8 +7,8 @@ import Buttons from "./Buttons";
 // Styling
 import { DetailWrapper } from "../styles";
 
-const ProductDetail = (props) => {
-  const products = useSelector(state => state.products);
+const ProductDetail = () => {
+  const products = useSelector(state => state.product.products);
   const {productSlug} = useParams();
   const product = products.find((product) => product.slug === productSlug);
 
@@ -18,7 +18,6 @@ const ProductDetail = (props) => {
       <Helmet>
         <title>{product.name}</title>
       </Helmet>
-      <p onClick={props.selectProduct}>Back to Products</p>
       <h1>{product.name}</h1>
       <img src={product.image} alt={product.name} />
       <p>{product.description}</p>

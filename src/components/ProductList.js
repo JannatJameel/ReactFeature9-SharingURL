@@ -10,9 +10,8 @@ import AddButton from "./AddButton";
 import Loading from "./Loading";
 
 
-const ProductList = (props) => {
-  const products = useSelector(state => state.products);
-  const loading = useSelector(state => state.loading);
+const ProductList = ({products, shopId}) => {
+  const loading = useSelector(state => state.product.loading);
 
   const [query, setQuery] = useState("");
 
@@ -33,7 +32,7 @@ const ProductList = (props) => {
       </Helmet>
       <SearchBar setQuery={setQuery} />
       <ListWrapper>{productList}</ListWrapper>
-      <AddButton/>
+      <AddButton shopId={shopId}/>
     </div>
   );
 };

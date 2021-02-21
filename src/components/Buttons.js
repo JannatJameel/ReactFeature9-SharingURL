@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { deleteProduct } from "../store/actions";
+import { deleteProduct } from "../store/actions/productActions";
 import { Link } from "react-router-dom";
 // Styling
 import { Button } from "../styles";

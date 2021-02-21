@@ -4,9 +4,7 @@ import Buttons from "./Buttons";
 // Styling
 import { ProductWrapper } from "../styles";
 
-const ProductItem = (props) => {
-  const product = props.product;
-
+const ProductItem = ({product}) => {
   return (
     <ProductWrapper>
       <Link to={`/products/${product.slug}`}>

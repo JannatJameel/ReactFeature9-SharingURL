@@ -4,19 +4,24 @@ import { useParams, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 
-import { createProduct, updateProduct } from "../store/actions";
+import { createProduct, updateProduct } from "../store/actions/productActions";
 
 
 const ProductForm = () => {
-    const products = useSelector(state => state.products);
-    const {productSlug} = useParams();
+    const products = useSelector(state => state.product.products);
+    // const shops = useSelector(state => state.shop.shops);
+
+    const {productSlug, shopId} = useParams();
     const dispatch = useDispatch();
     const history = useHistory();
 
     const foundProduct = products.find((product) => product.slug === productSlug);
+    // const foundShop = shops.find((shop) => shop.id === shopId);
+
 
     const [product, setProduct] = useState(
         (foundProduct)?? {
+            shopId: shopId,
             name: "",
             price: "",
             description: "",
@@ -28,11 +33,12 @@ const ProductForm = () => {
     productSlug? form ="Edit" : form = "Create";
     
     const handleChange = (event) => setProduct({...product, [event.target.name]: event.target.value});
+    const handleImage = (event) => setProduct({...product, image: event.target.files[0]});
     
     const handleSubmit = (event) => {
         event.preventDefault();
         (form === "Edit")? dispatch(updateProduct(product)) : dispatch(createProduct(product));
-        history.push("/products");
+        history.push(`/products`);
     };
 
     return (
@@ -55,9 +61,9 @@ const ProductForm = () => {
                     onChange={handleChange}/>
                 </div>
                 <div className="mb-3">
-                    <label className="form-label">Image url:</label>
-                    <input type="text" value = {product.image} name="image" className="form-control" 
-                    onChange={handleChange}/>
+                    <label className="form-label">Image:</label>
+                    <input type="file" name="image" className="form-control" 
+                    onChange={handleImage}/>
                 </div>
                 <ThemeButton type="submit" style={{marginTop: "2em", marginLeft: "35em"}}>{form}</ThemeButton>
             </form>
